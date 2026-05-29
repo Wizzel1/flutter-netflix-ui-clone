@@ -7,9 +7,9 @@ class ContentList extends StatelessWidget {
   final bool isOriginals;
 
   const ContentList({
-    Key key,
-    @required this.title,
-    @required this.contentList,
+    Key? key,
+    required this.title,
+    required this.contentList,
     this.isOriginals = false,
   }) : super(key: key);
 
@@ -34,29 +34,31 @@ class ContentList extends StatelessWidget {
           Container(
             height: isOriginals ? 500.0 : 220.0,
             child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12.0,
-                  horizontal: 16.0,
-                ),
-                itemCount: contentList.length,
-                itemBuilder: (context, index) {
-                  final Content content = contentList[index];
-                  return GestureDetector(
-                    onTap: () => print(content.name),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                      height: isOriginals ? 400.0 : 200.0,
-                      width: isOriginals ? 200.0 : 130.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(content.imageUrl),
-                            fit: BoxFit.cover),
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(
+                vertical: 12.0,
+                horizontal: 16.0,
+              ),
+              itemCount: contentList.length,
+              itemBuilder: (context, index) {
+                final Content content = contentList[index];
+                return GestureDetector(
+                  onTap: () => print(content.name),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                    height: isOriginals ? 400.0 : 200.0,
+                    width: isOriginals ? 200.0 : 130.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(content.imageUrl),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  );
-                }),
-          )
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

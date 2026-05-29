@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_netflix_responsive_ui/cubits/cubits.dart';
 import 'package:flutter_netflix_responsive_ui/screens/home_screen.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
 
 class NavScreen extends StatefulWidget {
-  NavScreen({Key key}) : super(key: key);
+  NavScreen({Key? key}) : super(key: key);
 
   @override
   _NavScreenState createState() => _NavScreenState();
@@ -26,7 +25,7 @@ class _NavScreenState extends State<NavScreen> {
     "Search": Icons.search,
     "Coming Soon": Icons.queue_play_next,
     "Downloads": Icons.file_download,
-    "More": Icons.menu
+    "More": Icons.menu,
   };
 
   int _currentIndex = 0;
@@ -48,10 +47,7 @@ class _NavScreenState extends State<NavScreen> {
                       (title, icon) => MapEntry(
                         title,
                         BottomNavigationBarItem(
-                          icon: Icon(
-                            icon,
-                            size: 30.0,
-                          ),
+                          icon: Icon(icon, size: 30.0),
                           label: title,
                         ),
                       ),
